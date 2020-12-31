@@ -57,5 +57,7 @@ y.grad
 z.grad
 ```
 Since `x` did not have `requires_grad` set to `true`, the gradient would be `None`.
+
 For `y`, the gradient of `a` with respect to `y` would be `tensor(3)`. 
+
 And for `z`, the gradient of `a` with respect to `z` would be `tensor(1)`.
