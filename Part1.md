@@ -69,4 +69,18 @@ PyTorch incorporates Numpy along with all the other libraries it uses.
 
 Make sure to import Numpy by saying `import numpy as np` at the top of the code.
 
+An array in Numpy can be converted into a PyTorch tensor by using `torch.from_numpy` and vice verca using the `.numpy` method.
+```
+import numpy as np
+
+#create a numpy array
+x = np.array([1, 2], [3, 4])
+
+#numpy array -> torch tensor
+y = torch.from_numpy(x)
+
+#torch tensor -> numpy array
+z = y.numpy()
+```
+Most datasets will be read and processed as Numpy arrays.
 
