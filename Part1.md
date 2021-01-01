@@ -61,3 +61,12 @@ Since `x` did not have `requires_grad` set to `true`, the gradient would be `Non
 For `y`, the gradient of `a` with respect to `y` would be `tensor(3)`. 
 
 And for `z`, the gradient of `a` with respect to `z` would be `tensor(1)`.
+
+# Numpy
+Numpy is an open source library using in Python for mathematical and scientific computing. It's also known for efficiency and optimized operations on large arrays with multiple dimensions. Numpy also supports a bunch of libraries (ex: Pandas, Matplotlib, OpenCV).
+
+PyTorch incorporates Numpy along with all the other libraries it uses.
+
+Make sure to import Numpy by saying `import numpy as np` at the top of the code.
+
+
