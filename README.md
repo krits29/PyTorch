@@ -1,2 +1,2 @@
 # PyTorch
-PyTorch Basics
+Deeplearning with PyTorch
