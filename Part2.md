@@ -7,6 +7,7 @@ Linear regression is one of the foundational algorithms used in machine learning
 Walking through an example model which can predict the crop yields for apples and oranges by considering regional variables like the average temperature, rainfall, and humidity.
 
 **Target Variables:** apples (ton), oranges (ton)
+
 **Input Variables:** temperature (F), rainfall (mm), humidity (%)
 
 **Training Data:**
