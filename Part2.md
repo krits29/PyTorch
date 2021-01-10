@@ -47,16 +47,28 @@ One row for the set of values. One column for each variable.
 Input (temp, rainfall, humidity)
 ```
 inputs = torch.tensor([[73, 67, 43], 
-                      [91, 88, 64], 
-                      [87, 134, 58], 
-                      [102, 43, 37], 
-                      [69, 96, 70]])
+                       [91, 88, 64], 
+                       [87, 134, 58], 
+                       [102, 43, 37], 
+                       [69, 96, 70]])
 ```
 Targets (apples, oranges)
 ```
-targets = torch.tensor([56, 70], 
-                       [81, 101], 
-                       [119, 133], 
-                       [22, 37], 
-                       [103, 119])
+targets = torch.tensor([[56, 70], 
+                        [81, 101], 
+                        [119, 133], 
+                        [22, 37], 
+                        [103, 119]])
 ```
+Additionally, the weights and biases can be respresented using matrices. They will start off as random values. Using `torch.randn` a random tensor can be created given a particular shape. In the case of the weights, there will be two rows (one for apple and one for oranges) and three columns for each input variable (temp, rainfall, humidity). In the case of the biases, there will just be two bias values, one for apples and one for oranges.
+```
+w = torch.randn(2, 3, requires_grad=True)
+b = torch.randn(2, requires_grad=True)
+```
+Coming back to the initial definition of the model that was previously stated:
+```
+yield_apple = (w11 * temp) + (w12 * rainfall) + (w13 * humidity) + b1
+yield_orange = (w21 * temp) + (w22 * rainfall) + (w23 * humidity) + b2
+```
+Now with the matrices that were created for the data, weights, and biases, this definition can be applied using simple matrix multiplication and addition.
+![model](https://i.imgur.com/WGXLFvA.png)
