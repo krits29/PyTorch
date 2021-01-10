@@ -102,3 +102,16 @@ tensor([[ 56,  70],
         [ 22,  37],
         [103, 119]])
 ```
+### Loss function
+Before improving the model, it's important to evaluate how well the current model is performing. To compare the model's predictions and the actual targets, the following method is used:
+- Calculate the difference beween the `preds` matrix and the `targets` matrix
+- Remove negative values by squaring all the elements of the difference matrix
+- Then alculate the average of all those elements in the final matrix
+This is called the **Mean Squared Error (MSE)** and it results in a single number.
+
+MSE loss
+```
+def mse(t1, t2)
+   diff = t1 - t2
+   return torch.sum(diff * diff) / diff.numel()
+```
