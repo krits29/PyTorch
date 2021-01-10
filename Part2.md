@@ -30,10 +30,33 @@ yield_orange = (w21 * temp) + (w22 * rainfall) + (w23 * humidity) + b2
 This results in a **linear or planar function** of the input variables: temperature, rainfall, and humidity.
 ![planar](https://i.imgur.com/4DJ9f8X.png)
 
-### Learning 
+**Learning**
 
 Using the training data, the model will learn what the set of weights `w11, w12, w13, w21, w22, w23` are. After that, the model can be fed new data about a different region and then make accurate predictions about the target variable given the specific new data.
 
-### Training
+**Training**
 
 The model will be trained by slightly adjusting the weights many many times, each time getting it closer and closer to the given target value. This optimization technique is called *gradient descent*.
+
+
+### Training the Data
+The training data can be represented using two matrices: `inputs` and `targets` 
+
+One row for the set of values. One column for each variable.
+
+Input (temp, rainfall, humidity)
+```
+inputs = torch.tensor([[73, 67, 43], 
+                      [91, 88, 64], 
+                      [87, 134, 58], 
+                      [102, 43, 37], 
+                      [69, 96, 70]])
+```
+Targets (apples, oranges)
+```
+targets = torch.tensor([56, 70], 
+                       [81, 101], 
+                       [119, 133], 
+                       [22, 37], 
+                       [103, 119])
+```
