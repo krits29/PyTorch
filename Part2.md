@@ -72,3 +72,33 @@ yield_orange = (w21 * temp) + (w22 * rainfall) + (w23 * humidity) + b2
 ```
 Now with the matrices that were created for the data, weights, and biases, this definition can be applied using simple matrix multiplication and addition.
 ![model](https://i.imgur.com/WGXLFvA.png)
+
+The weight matrix need to be *transposed* (flip flopped dimensions) in order to properly perform the matrix multiplication.
+
+The model can be defined as:
+```
+def model(x):
+  return x @ w.t() + b
+```
+The @ performs the matrix multiplication. The `.t()` will return a transpose. The `x` in the parameter is the input data into the model.
+
+Test it out:
+
+`preds = model(inputs)`
+
+returns
+```
+tensor([[-43.9569, -21.1025],
+        [-55.7975, -28.1628],
+        [-70.6863,  11.5154],
+        [-44.2982, -54.6685],
+        [-51.9732, -10.9839]], grad_fn=<AddBackward0>)
+```
+However, when compared to the actual values of the target variable, there is a HUGE difference:
+```
+tensor([[ 56,  70],
+        [ 81, 101],
+        [119, 133],
+        [ 22,  37],
+        [103, 119]])
+```
