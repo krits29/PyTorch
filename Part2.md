@@ -30,3 +30,10 @@ yield_orange = (w21 * temp) + (w22 * rainfall) + (w23 * humidity) + b2
 This results in a **linear or planar function** of the input variables: temperature, rainfall, and humidity.
 ![planar](https://i.imgur.com/4DJ9f8X.png)
 
+### Learning 
+
+Using the training data, the model will learn what the set of weights `w11, w12, w13, w21, w22, w23` are. After that, the model can be fed new data about a different region and then make accurate predictions about the target variable given the specific new data.
+
+### Training
+
+The model will be trained by slightly adjusting the weights many many times, each time getting it closer and closer to the given target value. This optimization technique is called *gradient descent*.
