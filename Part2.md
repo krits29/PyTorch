@@ -18,3 +18,15 @@ Johto | 91 | 88 | 64 | 81 | 101
 Hoenn | 87 | 124 | 58 | 119 | 133
 Sinnoh | 102 | 43 | 37 | 22 | 37
 Unova | 69 | 96 | 70 | 103 | 119
+
+Using the linear regression model, the target variable can be estimated.
+
+The estimation is calculated by adding the input variables multipled by a **weight**. Additionally, there is a constant offset, which is called the **bias**.
+
+```
+yield_apple = (w11 * temp) + (w12 * rainfall) + (w13 * humidity) + b1
+yield_orange = (w21 * temp) + (w22 * rainfall) + (w23 * humidity) + b2
+```
+This results in a **linear or planar function** of the input variables: temperature, rainfall, and humidity.
+![planar](https://i.imgur.com/4DJ9f8X.png)
+
