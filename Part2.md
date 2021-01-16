@@ -112,7 +112,14 @@ This is called the **Mean Squared Error (MSE)** and it results in a single numbe
 
 MSE loss
 ```
-def mse(t1, t2)
+def mse(t1, t2):
    diff = t1 - t2
    return torch.sum(diff * diff) / diff.numel()
 ```
+Apply the MSE loss function on the current predictions of the model.
+```
+loss = mse(preds, targets)
+```
+Which results in `tensor(15813.8125, grad_fn=<DivBackward0>)`
+
+The result can be interpreted as how off the model is at predicitng the target values. So in this case, each predicted element differs from the target element by the sqrt of the loss result.
