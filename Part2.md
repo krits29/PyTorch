@@ -123,3 +123,28 @@ loss = mse(preds, targets)
 Which results in `tensor(15813.8125, grad_fn=<DivBackward0>)`
 
 The result can be interpreted as how off the model is at predicitng the target values. So in this case, each predicted element differs from the target element by the sqrt of the loss result.
+
+*The lower the loss, the better the model.*
+
+### Computing Gradients
+Using PyTorch, the gradient (derivative) of the loss can be automatically computed. 
+```
+loss.backward()
+```
+The gradients are now stored in the `.grad` property of each respective tensor (because they are with respect to the weights).
+
+Remember that the weights were just a random tensor before. It was just a tensor matrix filled up with random values initially (which is why the model was so off in the first place).
+
+This is what it was:
+`w` = 
+```
+tensor([[-0.2910, -0.3450,  0.0305],
+        [-0.6528,  0.7386, -0.5153]], requires_grad=True)
+```
+The gradient is stored in the `.grad` property
+`w.grad = `
+```
+tensor([[-10740.7393, -12376.3008,  -7471.2300],
+        [ -9458.5078, -10033.8672,  -6344.1094]])
+```
+
