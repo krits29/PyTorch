@@ -136,12 +136,14 @@ The gradients are now stored in the `.grad` property of each respective tensor (
 Remember that the weights were just a random tensor before. It was just a tensor matrix filled up with random values initially (which is why the model was so off in the first place).
 
 This is what it was:
+
 `w` = 
 ```
 tensor([[-0.2910, -0.3450,  0.0305],
         [-0.6528,  0.7386, -0.5153]], requires_grad=True)
 ```
 The gradient is stored in the `.grad` property
+
 `w.grad = `
 ```
 tensor([[-10740.7393, -12376.3008,  -7471.2300],
