@@ -142,7 +142,7 @@ This is what it was:
 tensor([[-0.2910, -0.3450,  0.0305],
         [-0.6528,  0.7386, -0.5153]], requires_grad=True)
 ```
-The gradient is stored in the `.grad` property
+The gradient is stored in the `.grad` property:
 
 `w.grad = `
 ```
