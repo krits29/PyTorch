@@ -158,9 +158,20 @@ A couple of things to note in the diagram above:
 - an increase of the weight element will increase the loss
 - a decrease of the weight element will decrease the loss
 ![negativegradients](https://i.imgur.com/dvG2fxU.png)
+
 In this diagram above:
 - the gradient is negative (aka the slope)
 - an increase of the weight element will decrease the loss
 - a decrease of the weight element will increase the loss
 
 These observations are key for the *gradient descent* algorithm used to immprove the model. 
+
+The loss will be slightly reduced as the weight element is adjusted.
+
+Using `torch.no_grad` this can be implemented, and PyTorch will not track, calculate, or modify the gradients when updating the weights and biases.
+```
+with torch.no_grad():
+    w -= w.grad * 1e-5
+    b -= b.grad * 1e-5
+```
+The gradients are multiplied with a very small number (10^-5) so that the weights are not modified by too large of an amount. This number is called the *learning rate* of the algorithm.
