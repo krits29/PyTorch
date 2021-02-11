@@ -175,3 +175,13 @@ with torch.no_grad():
     b -= b.grad * 1e-5
 ```
 The gradients are multiplied with a very small number (10^-5) so that the weights are not modified by too large of an amount. This number is called the *learning rate* of the algorithm.
+
+Then quickly verify if the loss is actually any lower:
+```
+loss = mse(preds, targets)
+print(loss)
+```
+which results in:
+```
+tensor(15813.8125, grad_fn=<DivBackward0>)
+```
