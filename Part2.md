@@ -150,3 +150,10 @@ tensor([[-10740.7393, -12376.3008,  -7471.2300],
         [ -9458.5078, -10033.8672,  -6344.1094]])
 ```
 
+### Adjusting weights and baises
+Since the loss is a function (a quadratic function in particular), the shape of the graph can show where the set of weights for the loss is the lowest. The graph can be plotted with respect to a weight or bias:
+![gradients](https://i.imgur.com/WLzJ4xP.png)
+A couple of things to note in the diagram above:
+- the gradient is positive (aka the slope)
+- an increase of the weight element will increase the loss
+- a decrease of the weight element will decrease the loss
