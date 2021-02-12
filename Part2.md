@@ -190,7 +190,7 @@ Lastly, reset the gradients to zero by using `.zero_()` so that PyTorch won't au
 w.grad.zero_()
 b.grad.zero_()
 ```
-###Training with gradient descent
+### Training with gradient descent
 By using the gradient descent optimization algorithm, the loss is reduced and the model is improved. 
 
 Training the model steps:
@@ -204,16 +204,20 @@ Once again in code form:
 ```
 # Generate predictions
 preds = model(inputs)
+
 # Calculate the loss
 loss = mse(preds, targets)
+
 # Compute gradients
 loss.backward()
+
 # Adjust weights & reset gradients
 with torch.no_grad():
     w -= w.grad * 1e-5
     b -= b.grad * 1e-5
     w.grad.zero_()
     b.grad.zero_()
+    
 # Calculate loss
 preds = model(inputs)
 loss = mse(preds, targets)
