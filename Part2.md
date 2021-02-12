@@ -185,3 +185,8 @@ which results in:
 ```
 tensor(15813.8125, grad_fn=<DivBackward0>)
 ```
+Lastly, reset the gradients to zero by using `.zero_()` so that PyTorch won't automatically accumulate the gradients. 
+```
+w.grad.zero_()
+b.grad.zero_()
+```
