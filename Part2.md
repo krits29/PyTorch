@@ -222,4 +222,32 @@ with torch.no_grad():
 preds = model(inputs)
 loss = mse(preds, targets)
 ```
+The new weights and biases after the adjustment came out to be:
+```
+tensor([[-0.0961, -0.1190,  0.1667],
+        [-0.4805,  0.9211, -0.3996]], requires_grad=True)
+tensor([-0.9137, -0.7759], requires_grad=True)
+```
+The overall loss that got calculated is now lower: `tensor(7357.4829, grad_fn=<DivBackward0>)`
+
+There is already quite a reduction in the loss with one step of the gradient descent optimizaton.
+
+### Training multiple epochs
+The steps for gradient descent can now be repeated to further adjust the weights/biases several times to get closer and closer to the target.
+
+An *epoch* is each iteration.
+
+The easiest way is to use a for loop. Here the model is trained for 100 epochs:
+```
+for i in range(100):
+    preds = model(inputs)
+    loss = mse(preds, targets)
+    loss.backward()
+    with torch.no_grad():
+        w -= w.grad * 1e-5
+        b -= b.grad * 1e-5
+        w.grad.zero_()
+        b.grad.zero_()
+```
+Quickly verifying that the loss is lower: `tensor(130.3513, grad_fn=<DivBackward0>)`
 
