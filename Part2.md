@@ -339,7 +339,7 @@ Printing `train_ds` for the first 3 elements `[0:3]`
          [ 81., 101.],
          [119., 133.]]))
 ```
-Another built in function is `DataLoader` which splits the data into batches of predefined size while training. It can also suffle data or do random sampling.
+Another built in function is `DataLoader` which splits the data into batches of predefined size while training. It can also shuffle data or do random sampling.
 ```
 from torch.utils.data import DataLoader
 ```
@@ -373,14 +373,15 @@ tensor([0.3457, 0.3883], requires_grad=True)
 ```
 ### Parameters
 
-PyTorch models also have a helpful `.parameters` method, which returns a list containing all the weights and bias matrices present in the model. For the linear regression model, there is just one weight matrix and one bias matrix.
+PyTorch models also have a helpful `.parameters` method, which returns a list containing all the weights and bias matrices present in the model. For the linear regression model, it contains of one weight matrix and one bias matrix.
 
 Parameters:
 ```
 list(model.parameters())
 ```
 Returns:
-```[Parameter containing:
+```
+[Parameter containing:
  tensor([[ 0.1304, -0.1898,  0.2187],
          [ 0.2360,  0.4139, -0.4540]], requires_grad=True),
  Parameter containing:
