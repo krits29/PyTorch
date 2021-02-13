@@ -410,4 +410,51 @@ Compute the loss for current predictions:
 loss = loss_fn(model(inputs), targets)
 ```
 ### Optimizer
+Instead of manually manipulating the model's weights and biases using gradients, the optimizer `optim.SGD` can be used. SGD is short for "stochastic gradient descent". The term *stochastic* indicates that samples are selected in random batches instead of as a single group.
 
+Define optimizer:
+```
+opt = torch.optim.SGD(model.parameters(), lr=1e-5)
+```
+Note that model.parameters() is passed as an argument to `optim.SGD` so that the optimizer knows which matrices should be modified during the update step. Also, the learning rate can be specifeid that controls the amount by which the parameters are modified.
+
+### Train the model
+All the steps from before will be the same, the only difference is that there will be batches of data to process instead of training the entire data in every iteration.
+
+Same steps overall:
+1. Generate predictions
+2. Calculate the loss
+3. Compute gradients with respect to the weights and biases
+4. Adjust the weights by subtracting a small quantity proportional to the gradient
+5. Reset the gradients to zero
+
+The utility function `fit` will be used to train the model fro a given number of epochs. The data loader defined earlier will also be used to get batches of data for every iteration. 
+```
+# Utility function to train the model
+def fit(num_epochs, model, loss_fn, opt, train_dl):
+    
+    # Repeat for given number of epochs
+    for epoch in range(num_epochs):
+        
+        # Train with batches of data
+        for xb,yb in train_dl:
+            
+            # 1. Generate predictions
+            pred = model(xb)
+            
+            # 2. Calculate loss
+            loss = loss_fn(pred, yb)
+            
+            # 3. Compute gradients
+            loss.backward()
+            
+            # 4. Update parameters using gradients
+            opt.step()
+            
+            # 5. Reset the gradients to zero
+            opt.zero_grad()
+        
+        # Print the progress
+        if (epoch+1) % 10 == 0:
+            print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
+   ```
