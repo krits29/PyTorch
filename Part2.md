@@ -355,3 +355,19 @@ for xb, yb in train_dl:
     print(yb)
     break
 ```
+### nn.Linear
+Using the `nn.Linear` class from PyTorch, the weight and biases can be automatically initialiazed to define the model.
+
+Define the model:
+```
+model = nn.Linear(3, 2)
+```
+Now `model.weight` can be used:
+```
+tensor([[ 0.1304, -0.1898,  0.2187],
+        [ 0.2360,  0.4139, -0.4540]], requires_grad=True)
+```
+And `model.bias` as well:
+```
+tensor([0.3457, 0.3883], requires_grad=True)
+```
