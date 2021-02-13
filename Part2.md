@@ -232,7 +232,7 @@ The overall loss that got calculated is now lower: `tensor(7357.4829, grad_fn=<D
 
 There is already quite a reduction in the loss with one step of the gradient descent optimizaton.
 
-### Training multiple epochs
+### Training with multiple epochs
 The steps for gradient descent can now be repeated to further adjust the weights/biases several times to get closer and closer to the target.
 
 An *epoch* is each iteration.
@@ -251,3 +251,24 @@ for i in range(100):
 ```
 Quickly verifying that the loss is lower: `tensor(130.3513, grad_fn=<DivBackward0>)`
 
+After 100 epochs, the loss is now much lower than the initial value. 
+
+So, at this point, the model's predictions shoul dbe pretty close to the targets.
+
+Preds:
+```
+tensor([[ 60.8975,  70.5663],
+        [ 83.9699,  92.9066],
+        [108.6802, 150.1993],
+        [ 43.5842,  38.4608],
+        [ 91.6760, 104.6360]], grad_fn=<AddBackward0>)
+```
+Targets:
+```
+tensor([[ 56.,  70.],
+        [ 81., 101.],
+        [119., 133.],
+        [ 22.,  37.],
+        [103., 119.]])
+```
+And they are definitely quite close. With a few more epochs, the results can get even closer.
