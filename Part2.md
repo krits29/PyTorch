@@ -312,3 +312,12 @@ targets = torch.tensor([[56, 70],
                         [20, 38], 
                         [102, 120]])
 ```
+This time, there are more training examples to show how to work with large datasets in small batches.
+
+### Dataset and DataLoader
+Creating a `TensorDataset` allows access to rows from `inputs` and `targets` as tuples and also provides standard APIs for working different types of datasets in PyTorch.
+```
+from torch.utils.data import TensorDataset
+```
+By using `TensorDataset`, a small section of the training data can be accessed (using array indexing notation [0:3]). 
+Define the dataset:
