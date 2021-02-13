@@ -481,3 +481,50 @@ Generate predictions using the model:
 ```
 preds = model(inputs)
 ```
+preds:
+```
+tensor([[ 58.4229,  72.0145],
+        [ 82.1525,  95.1376],
+        [115.8955, 142.6296],
+        [ 28.6805,  46.0115],
+        [ 97.5243, 104.3522],
+        [ 57.3792,  70.9543],
+        [ 81.9342,  94.1737],
+        [116.2036, 142.6871],
+        [ 29.7242,  47.0717],
+        [ 98.3498, 104.4486],
+        [ 58.2047,  71.0507],
+        [ 81.1088,  94.0774],
+        [116.1137, 143.5935],
+        [ 27.8550,  45.9152],
+        [ 98.5680, 105.4124]], grad_fn=<AddmmBackward>)
+```
+compare with targets:
+```
+tensor([[ 56.,  70.],
+        [ 81., 101.],
+        [119., 133.],
+        [ 22.,  37.],
+        [103., 119.],
+        [ 57.,  69.],
+        [ 80., 102.],
+        [118., 132.],
+        [ 21.,  38.],
+        [104., 118.],
+        [ 57.,  69.],
+        [ 82., 100.],
+        [118., 134.],
+        [ 20.,  38.],
+        [102., 120.]])
+```
+Indeed, the predictions are quite close to the targets. It's become a reasonably good trained model to predict crop yields for apples and oranges by looking at the average temperature, rainfall, and humidity in a region. Now it can be used to make predictions of crop yields for new regions by passing a batch containing a single row of input.
+
+New input:
+```
+model(torch.tensor([[75, 63, 44.]]))
+```
+Result:
+```
+tensor([[55.3323, 67.8895]], grad_fn=<AddmmBackward>)
+```
+The predicted yield of apples is 54.3 tons per hectare, and for oranges it's 68.3 tons per hectare.
