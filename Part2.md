@@ -399,9 +399,13 @@ Instead of defining the loss function manually, the built-in loss function `mse_
 
 The `nn.functional` package contains many useful functions and other utilities.
 ```
-import torch.nn.functional as F
+import torch.nn.functional as nnfunc
 ```
-Compute the loss:
+Define loss function:
+```
+loss_fn = nnfunc.mse_loss
+```
+Compute the loss for current predictions:
 ```
 loss = loss_fn(model(inputs), targets)
 ```
