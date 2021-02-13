@@ -387,12 +387,22 @@ Returns:
  tensor([0.3457, 0.3883], requires_grad=True)]
  ```
  
- ### Predictions
- Predictions can be generated the same way as before.
+### Predictions
+Predictions can be generated the same way as before.
  
- Generate Predictions:
- ```
- preds = model(inputs)
- ```
- 
+Generate Predictions:
+```
+preds = model(inputs)
+```
+### Loss Function
+Instead of defining the loss function manually, the built-in loss function `mse_loss` can be used.
+
+The `nn.functional` package contains many useful functions and other utilities.
+```
+import torch.nn.functional as F
+```
+Compute the loss:
+```
+loss = loss_fn(model(inputs), targets)
+```
 
