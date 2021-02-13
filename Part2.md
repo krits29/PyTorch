@@ -457,4 +457,22 @@ def fit(num_epochs, model, loss_fn, opt, train_dl):
         # Print the progress
         if (epoch+1) % 10 == 0:
             print('Epoch [{}/{}], Loss: {:.4f}'.format(epoch+1, num_epochs, loss.item()))
-   ```
+```
+Instead of manually updating the parameters (weights and biases), `opt.step` can perform the update and `opt.zero_grad` resets the gradients to zero. The print statement keeps track of the training process by printing the loss from the previous batch of data for every 10th epoch. Then `loss.item` returns the actual value stored in the tensor.
+
+Train the model for 100 epochs:
+```
+fit(100, model, loss_fn, opt, train_dl)
+```
+```
+Epoch [10/100], Loss: 818.6476
+Epoch [20/100], Loss: 335.3347
+Epoch [30/100], Loss: 190.3544
+Epoch [40/100], Loss: 131.6701
+Epoch [50/100], Loss: 77.0783
+Epoch [60/100], Loss: 151.5671
+Epoch [70/100], Loss: 151.0817
+Epoch [80/100], Loss: 67.6262
+Epoch [90/100], Loss: 53.6205
+Epoch [100/100], Loss: 33.4517
+```
