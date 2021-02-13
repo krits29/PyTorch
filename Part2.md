@@ -275,6 +275,11 @@ And they are definitely quite close. With a few more epochs, the results can get
 # PyTorch Built-ins
 PyTorch provides several built-in functions to do some of the same steps above because linear regression is quite common. 
 
+First things first, `torch.nn` package from PyTorch should be imported. This contains utillity classes for building neural networks.
+```
+import torch.nn as nn
+```
+
 As before, the inputs and the targets can be represented as matrices.
 Input (temp, rainfall, humidity)
 ```
@@ -319,13 +324,13 @@ Creating a `TensorDataset` allows access to rows from `inputs` and `targets` as 
 ```
 from torch.utils.data import TensorDataset
 ```
-By using `TensorDataset`, a small section of the training data can be accessed (using array indexing notation [0:3]). It will return a tuple with two elements. The first contains the input variables for the selected rows. The second contains the targets.
+By using `TensorDataset`, a small section of the training data can be accessed (using array indexing notation `[0:3]`). It will return a tuple with two elements. The first contains the input variables for the selected rows. The second contains the targets.
 
 Define the dataset:
 ```
 train_ds = TensorDataset(inputs, targets)
 ```
-Printing `train_ds` for the first 3 elements [0:3]
+Printing `train_ds` for the first 3 elements `[0:3]`
 ```
 (tensor([[ 73.,  67.,  43.],
          [ 91.,  88.,  64.],
@@ -333,4 +338,20 @@ Printing `train_ds` for the first 3 elements [0:3]
  tensor([[ 56.,  70.],
          [ 81., 101.],
          [119., 133.]]))
+```
+Another built in function is `DataLoader` which splits the data into batches of predefined size while training. It can also suffle data or do random sampling.
+```
+from torch.utils.data import DataLoader
+```
+Define the data loader:
+```
+batch_size = 5
+train_dl = DataLoader(train_ds, batch_size, shuffle=True)
+```
+The data loader can be used in a `for` loop. In each itereation, the data loader will return one batch of data with whatever the given batch size it. It can also shuffle the data before creating the batch, if `shuffle` is set to `True`. Shuffling is useful to randomize the input to the optimiaztion, which in turn leads to a faster reduction in loss.
+```
+for xb, yb in train_dl:
+    print(xb)
+    print(yb)
+    break
 ```
