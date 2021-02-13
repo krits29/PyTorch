@@ -319,5 +319,18 @@ Creating a `TensorDataset` allows access to rows from `inputs` and `targets` as 
 ```
 from torch.utils.data import TensorDataset
 ```
-By using `TensorDataset`, a small section of the training data can be accessed (using array indexing notation [0:3]). 
+By using `TensorDataset`, a small section of the training data can be accessed (using array indexing notation [0:3]). It will return a tuple with two elements. The first contains the input variables for the selected rows. The second contains the targets.
+
 Define the dataset:
+```
+train_ds = TensorDataset(inputs, targets)
+```
+Printing `train_ds` for the first 3 elements [0:3]
+```
+(tensor([[ 73.,  67.,  43.],
+         [ 91.,  88.,  64.],
+         [ 87., 134.,  58.]]),
+ tensor([[ 56.,  70.],
+         [ 81., 101.],
+         [119., 133.]]))
+```
