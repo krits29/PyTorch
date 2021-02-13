@@ -409,4 +409,5 @@ Compute the loss for current predictions:
 ```
 loss = loss_fn(model(inputs), targets)
 ```
+### Optimizer
 
