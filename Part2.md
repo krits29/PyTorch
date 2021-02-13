@@ -371,3 +371,28 @@ And `model.bias` as well:
 ```
 tensor([0.3457, 0.3883], requires_grad=True)
 ```
+### Parameters
+
+PyTorch models also have a helpful `.parameters` method, which returns a list containing all the weights and bias matrices present in the model. For the linear regression model, there is just one weight matrix and one bias matrix.
+
+Parameters:
+```
+list(model.parameters())
+```
+Returns:
+```[Parameter containing:
+ tensor([[ 0.1304, -0.1898,  0.2187],
+         [ 0.2360,  0.4139, -0.4540]], requires_grad=True),
+ Parameter containing:
+ tensor([0.3457, 0.3883], requires_grad=True)]
+ ```
+ 
+ ### Predictions
+ Predictions can be generated the same way as before.
+ 
+ Generate Predictions:
+ ```
+ preds = model(inputs)
+ ```
+ 
+
