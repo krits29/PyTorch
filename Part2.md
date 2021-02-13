@@ -464,6 +464,7 @@ Train the model for 100 epochs:
 ```
 fit(100, model, loss_fn, opt, train_dl)
 ```
+Printed outcomes:
 ```
 Epoch [10/100], Loss: 818.6476
 Epoch [20/100], Loss: 335.3347
@@ -475,4 +476,8 @@ Epoch [70/100], Loss: 151.0817
 Epoch [80/100], Loss: 67.6262
 Epoch [90/100], Loss: 53.6205
 Epoch [100/100], Loss: 33.4517
+```
+Generate predictions using the model:
+```
+preds = model(inputs)
 ```
