@@ -31,3 +31,11 @@ In order to view the image, the `matplotlib` library can be used (also used for 
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
+Here are a couple of images from the dataset:
+```
+image, label = dataset[0]
+plt.imshow(image, cmap='gray')
+print('Label:', label)
+```
+Label: 5
+![img](https://tinyurl.com/1pdyb8u3)
