@@ -31,11 +31,19 @@ In order to view the image, the `matplotlib` library can be used (also used for 
 import matplotlib.pyplot as plt
 %matplotlib inline
 ```
-Here are a couple of images from the dataset:
+Here is one of the images from the dataset:
 ```
 image, label = dataset[0]
 plt.imshow(image, cmap='gray')
 print('Label:', label)
 ```
 Label: 5
-![img](https://tinyurl.com/1pdyb8u3)
+
+![mnistimg](https://miro.medium.com/max/704/1*GlZuwzO-dMXxyEHO65Ha_A.png)
+
+These images are relatively small in zice, and it is challengeing to recognize the digits even to the human eye. 
+
+Since PyTorch doesn't know how to work with images, they must be converted into tensors. This can be done by specifying a transform while creating the dataset.
+```
+import torchvision.transforms as transforms
+```
