@@ -41,9 +41,15 @@ Label: 5
 
 ![mnistimg](https://miro.medium.com/max/704/1*GlZuwzO-dMXxyEHO65Ha_A.png)
 
-These images are relatively small in zice, and it is challengeing to recognize the digits even to the human eye. 
+These images are relatively small in size, and it is challengeing to recognize the digits even to the human eye. 
 
-Since PyTorch doesn't know how to work with images, they must be converted into tensors. This can be done by specifying a transform while creating the dataset.
+Since PyTorch doesn't know how to work with images, they must be converted into tensors. This can be done by specifying a transform while creating the dataset. The `torchvision.transforms`module contains many predefined transformation functions that can be applied to the images as they are loaded. The `ToTenser` will transform the images into PyTorch tensors. 
 ```
 import torchvision.transforms as transforms
+```
+MNIST Dataset (images and labels)
+```
+dataset = MNIST(root='data/', 
+                train=True,
+                transform=transforms.ToTensor())
 ```
