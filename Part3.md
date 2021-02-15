@@ -58,3 +58,22 @@ Convert into a 1x28x28 tensor:
 ```
 img_tensor, label = dataset[0]
 ```
+The first dimension tracks color channels. The second and third dimensions represents the height and width of the image in pixels, respectively. Since images in the MNIST dataset are grayscale, there's just one channel. Other datasets have images with color, in which case there are three channels: red, green, and blue (RGB).
+
+Here are some sample values inside the tensor `print(img_tensor[0,10:15,10:15])`
+```
+tensor([[0.0039, 0.6039, 0.9922, 0.3529, 0.0000],
+        [0.0000, 0.5451, 0.9922, 0.7451, 0.0078],
+        [0.0000, 0.0431, 0.7451, 0.9922, 0.2745],
+        [0.0000, 0.0000, 0.1373, 0.9451, 0.8824],
+        [0.0000, 0.0000, 0.0000, 0.3176, 0.9412]])
+```
+The values range from 0 to 1, with 0 representing black, 1 white, and the values in between different shades of grey. `print(torch.max(img_tensor), torch.min(img_tensor))`
+```
+tensor(1.) tensor(0.)
+```
+Using `plt.imshow`, the tensor can be plotted as an image:
+```
+plt.imshow(img_tensor[0,10:15,10:15], cmap='gray');
+```
+![imshow](https://lh3.googleusercontent.com/fze6zrNtkU4KK79A4gOeOxP5PlW4CiKirOJjmj2Ezw3SDYnxhXHYM5-x8hjmxxbYp8Kl=s85)
