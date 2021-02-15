@@ -2,6 +2,7 @@
 Existing knowledge of PyTorch and linear regression can be implemented for a new problem: *image classification*. The training dataset will be the MNIST Handwritten Digits Database. It consists of several grayscale images of handwritten digits (0 to 9) and has a label for each image indicating the digit it reperesents. 
 
 Here are some of the images in the MNIST dataset:
+
 ![mnist](https://i.imgur.com/CAYnuo1.jpg)
 
 First things first, install and import `torch` and `torchvision`. 
@@ -52,4 +53,8 @@ MNIST Dataset (images and labels)
 dataset = MNIST(root='data/', 
                 train=True,
                 transform=transforms.ToTensor())
+```
+Convert into a 1x28x28 tensor:
+```
+img_tensor, label = dataset[0]
 ```
