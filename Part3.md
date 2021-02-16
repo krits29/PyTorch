@@ -81,4 +81,4 @@ plt.imshow(img_tensor[0,10:15,10:15], cmap='gray');
 ### Training sets and Validation sets
 When building real-world machine learning models, it is common to split the dataset into three parts:
 1. **Training set** - used to train the model (ex: compute the loss and adjust the model's weights using gradient descent)
-2. 
+2. **Validation set** - used to evaluate the model during training, adjust hyperparameters (learning rate, etc), and pick the best version of the model
