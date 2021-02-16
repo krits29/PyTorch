@@ -77,3 +77,8 @@ Using `plt.imshow`, the tensor can be plotted as an image:
 plt.imshow(img_tensor[0,10:15,10:15], cmap='gray');
 ```
 ![imshow](https://lh3.googleusercontent.com/fze6zrNtkU4KK79A4gOeOxP5PlW4CiKirOJjmj2Ezw3SDYnxhXHYM5-x8hjmxxbYp8Kl=s85)
+
+### Training sets and Validation sets
+When building real-world machine learning models, it is common to split the dataset into three parts:
+1. **Training set** - used to train the model (ex: compute the loss and adjust the model's weights using gradient descent)
+2. 
