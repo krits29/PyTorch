@@ -82,3 +82,14 @@ plt.imshow(img_tensor[0,10:15,10:15], cmap='gray');
 When building real-world machine learning models, it is common to split the dataset into three parts:
 1. **Training set** - used to train the model (ex: compute the loss and adjust the model's weights using gradient descent)
 2. **Validation set** - used to evaluate the model during training, adjust hyperparameters (learning rate, etc), and pick the best version of the model
+3. **Test set** - used to compare different models or approaches and report the model's final accuracy
+
+In the MNIST dataset, there are 60,000 training images and 10,000 test images. The test set is standardized so that different researchers can report their models' results against the same collection of images.
+
+
+Since there's no predefined validation set, the 60,000 images must be split into training and validation datasets. 10,000 randomly chosen images can be set aside for validation by using the `random_spilt` method from PyTorch.
+```
+from torch.utils.data import random_split
+
+train_ds, val_ds = random_split(dataset, [50000, 10000])
+```
