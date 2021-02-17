@@ -87,7 +87,7 @@ When building real-world machine learning models, it is common to split the data
 In the MNIST dataset, there are 60,000 training images and 10,000 test images. The test set is standardized so that different researchers can report their models' results against the same collection of images.
 
 
-Since there's no predefined validation set, the 60,000 images must be split into training and validation datasets. 10,000 randomly chosen images can be set aside for validation by using the `random_spilt` method from PyTorch.
+Since there's no predefined validation set, the 60,000 images must be split into training and validation datasets. 10,000 randomly chosen images can be set aside for validation by using the `random_split` method from PyTorch. The validation set should be created with a random sample since the training data is often sorted by the target labels.
 ```
 from torch.utils.data import random_split
 
