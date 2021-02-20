@@ -109,5 +109,5 @@ In order to ensure that the data loader generates different batches in each eopc
 Now that the data loaders are prepared, the model can be defined:
 - A **logistic regression** model is almost identical to a linear regression model. It contains weights and bias matrices, and the output is obtained using simple matrix operations (`pred = x @ w.t() + b`)
 - Use `nn.Linear` to create the model instead of manually creating and initializing the matrices
-- Since `nn.Linear` expects each training example to be a vector, each 1x28x28 image tensor is *flattened* into a vector of size 784 `(28*28)` before being passed into the model
-- The output for each image is a vector of size 10, with each element signifying the probability of a particular target label (i.e., 0 to 9). The predicted label for an image is simply the one with the highest probability
+- Since `nn.Linear` expects each training example to be a vector, each `1x28x28` image tensor is *flattened* into a vector of size 784 `(28*28)` before being passed into the model
+- The output for each image is a vector of size 10, with each element signifying the probability of a particular target label (ex: 0 to 9). The predicted label for an image is simply the one with the highest probability
