@@ -94,7 +94,7 @@ from torch.utils.data import random_split
 train_ds, val_ds = random_split(dataset, [50000, 10000])
 ```
 
-Next, the data will be split into batches. This is done by creating data loaders. The batch size is set for 128:
+Next, the data is split into batches. This is done by creating data loaders. The batch size is set for 128:
 ```
 from torch.utils.data import DataLoader
 
@@ -103,4 +103,4 @@ batch_size = 128
 train_loader = DataLoader(train_ds, batch_size, shuffle=True)
 val_loader = DataLoader(val_ds, batch_size)
 ```
-With Shuffle = True.
+In order to ensure that the data loader generates different batches in each eopch, `shuffle` is set to true. This helps with randomization and will generalze and speed up the training process. Since the validation data loader is only for evaluating the model, there is no need to shuffle the images.
