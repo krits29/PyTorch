@@ -111,3 +111,33 @@ Now that the data loaders are prepared, the model can be defined:
 - Use `nn.Linear` to create the model instead of manually creating and initializing the matrices
 - Since `nn.Linear` expects each training example to be a vector, each `1x28x28` image tensor is *flattened* into a vector of size 784 `(28*28)` before being passed into the model
 - The output for each image is a vector of size 10, with each element signifying the probability of a particular target label (ex: 0 to 9). The predicted label for an image is simply the one with the highest probability
+
+This model is a lot larger with a large amount of parameters
+```
+import torch.nn as nn
+
+input_size = 28*28
+num_classes = 10
+```
+Logistic Regression Model
+```
+model = nn.Linear(input_size, num_classes)
+```
+Weights `model.weight`
+```
+Parameter containing:
+tensor([[ 0.0009, -0.0116, -0.0353,  ...,  0.0250,  0.0174, -0.0170],
+        [ 0.0273, -0.0075, -0.0141,  ..., -0.0279,  0.0321,  0.0207],
+        [ 0.0115,  0.0028,  0.0332,  ...,  0.0286, -0.0246, -0.0237],
+        ...,
+        [-0.0151,  0.0339,  0.0293,  ...,  0.0080, -0.0065,  0.0281],
+        [-0.0011,  0.0064,  0.0177,  ..., -0.0050,  0.0324, -0.0150],
+        [ 0.0147, -0.0001, -0.0042,  ..., -0.0102,  0.0343, -0.0263]],
+       requires_grad=True)
+```
+Biases `model.bias`
+```
+Parameter containing:
+tensor([ 0.0080,  0.0105, -0.0150, -0.0245,  0.0057, -0.0085,  0.0240,  0.0297,
+         0.0087,  0.0296], requires_grad=True)
+```
