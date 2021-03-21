@@ -35,8 +35,9 @@ print('image.shape:', image.shape)
 plt.imshow(image.permute(1, 2, 0), cmap='gray')
 print('Label:', label)
 ```
-Label: 5
 ![MNISTexample](https://user-images.githubusercontent.com/52376448/63792062-bba44500-c937-11e9-9747-e048df95e1a6.png)
+
+Label: 5
 
 **Validation/Training Sets**
 
@@ -50,6 +51,7 @@ train_ds, val_ds = random_split(dataset, [train_size, val_size])
 So now the training set contains 50000 images and the validation set contains 10000 images.
 
 **Dataloaders**
+
 First set the batch size, and then create the PyTorch data loaders for the training and validation sets.
 ```
 batch_size=128
@@ -57,3 +59,6 @@ batch_size=128
 train_loader = DataLoader(train_ds, batch_size, shuffle=True, num_workers=4, pin_memory=True)
 val_loader = DataLoader(val_ds, batch_size*2, num_workers=4, pin_memory=True)
 ```
+## Layers
+
+To improve upon logistic regrestoin, a neural network with two layers (*a hidden layer* and an *output layer*) with an *activation function*  between the two layers can be created.
