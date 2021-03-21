@@ -36,3 +36,24 @@ plt.imshow(image.permute(1, 2, 0), cmap='gray')
 print('Label:', label)
 ```
 Label: 5
+![MNISTexample](https://user-images.githubusercontent.com/52376448/63792062-bba44500-c937-11e9-9747-e048df95e1a6.png)
+
+**Validation/Training Sets**
+
+By using the `random_split` helper funciton, 10000 images can be set aside for the validation set.
+```
+val_size = 10000
+train_size = len(dataset) - val_size
+
+train_ds, val_ds = random_split(dataset, [train_size, val_size])
+```
+So now the training set contains 50000 images and the validation set contains 10000 images.
+
+**Dataloaders**
+First set the batch size, and then create the PyTorch data loaders for the training and validation sets.
+```
+batch_size=128
+
+train_loader = DataLoader(train_ds, batch_size, shuffle=True, num_workers=4, pin_memory=True)
+val_loader = DataLoader(val_ds, batch_size*2, num_workers=4, pin_memory=True)
+```
