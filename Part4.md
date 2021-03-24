@@ -61,4 +61,11 @@ val_loader = DataLoader(val_ds, batch_size*2, num_workers=4, pin_memory=True)
 ```
 ## Layers
 
-To improve upon logistic regrestoin, a neural network with two layers (*a hidden layer* and an *output layer*) with an *activation function*  between the two layers can be created.
+To improve upon logistic regression, a neural network with two layers (*a hidden layer* and an *output layer*) with an *activation function*  between the two layers can be created.
+
+How it works:
+* Instead of using a single `nn.Linear` object to transform a batch of inputs into a batch of outputs (pixel intensities -> class probablitites), use *two* `nn.Linear` objects. *Each of these are called a layer in the network`
+* The first layer (aka the hidden layer) will transfrom the input matric of shape `batch_size x 784` into an intermediate output matrix shape `batch_size x hidden_size`, where `hidden_size` is a preconfigured parameter (ex. 32 or 64)
+* The intermediate outputs are then passed into a non-linear *activation dunction*, which operated on individual elements of the output matrix
+* The result of the activation function (size of `batch_size x hidden_size`) is passed into the seconf layer (aka the output layer), which transforms it into a matrix of size `batch_size x 10`, identical to the output of the logistic regression model
+
