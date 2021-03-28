@@ -82,3 +82,14 @@ input_size = inputs.shape[-1]
 hidden_size = 32
 layer1 = nn.Linear(input_size, hidden_size)
 ```
+Now pass `inputs` through `layer1` to compute the intermediate outputs.
+```
+layer1_outputs = layer1(inputs)
+```
+The image vectors of size `784` are transformed into intermediate output vectors of length `32` by performing a matrix multiplication of `inputs` matrix with the transposed weights matrix of `layer1` and adding the bias. 
+```
+layer1_outputs_direct = inputs @ layer1.weight.t() + layer1.bias
+```
+So `torch.Size` is now `[128, 32]`
+
+Thus, `layer1_outputs` and `inputs` have a linear relationship. Each element of `layer_outputs` is a weighted sum of elements from `inputs`. So, even as while training the model and modifying the weights, `layer1` can only capture linear relationships between `inputs` and `outputs`.
