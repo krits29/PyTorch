@@ -77,3 +77,8 @@ for images, labels in train_loader:
     break
 ```
 Create the *hidden layer* by creating a `nn.Linear` object. Set the size of the output from the hidden layer to `32`. This number can be increased or decreased to change the learning capacity of the model.
+```
+input_size = inputs.shape[-1]
+hidden_size = 32
+layer1 = nn.Linear(input_size, hidden_size)
+```
