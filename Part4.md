@@ -92,4 +92,10 @@ layer1_outputs_direct = inputs @ layer1.weight.t() + layer1.bias
 ```
 So `torch.Size` is now `[128, 32]`
 
-Thus, `layer1_outputs` and `inputs` have a linear relationship. Each element of `layer_outputs` is a weighted sum of elements from `inputs`. So, even as while training the model and modifying the weights, `layer1` can only capture linear relationships between `inputs` and `outputs`.
+Thus, `layer1_outputs` and `inputs` have a linear relationship. Each element of `layer_outputs` is a weighted sum of elements from `inputs`. So, even while training the model and modifying the weights, `layer1` can only capture linear relationships between `inputs` and `outputs`.
+
+![layers](https://i.imgur.com/inXsLuq.png)
+
+Next is the activation function for the outputs. The *Rectified Linear Unit (RelU) function* can be used with their formula `relu(x) = max(0, x)` which simply replaces negative values in a given tensor with the value 0. ReLU is a non-linear function, as seen here visually:
+![relu](https://i.imgur.com/yijV4xF.png)
+
