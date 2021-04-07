@@ -100,8 +100,21 @@ Next is the activation function for the outputs. The *Rectified Linear Unit (Rel
 ![relu](https://i.imgur.com/yijV4xF.png)
 
 Use the `F.relu` method to apply ReLU to the elements of a tensor.
+
+Ex:
 ```
 F.relu(torch.tensor([[1, -1, 0], 
                      [-0.1, .2, 3]]))
 ```
+which transforms into
+```
+tensor([[1.0000, 0.0000, 0.0000],
+        [0.0000, 0.2000, 3.0000]])
+```
+
+Now apply the activation function to `layer1_outputs`
+```
+relu_outputs = F.relu(layer1_outputs)
+```
+
 
