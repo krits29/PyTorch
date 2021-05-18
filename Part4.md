@@ -99,7 +99,7 @@ Thus, `layer1_outputs` and `inputs` have a linear relationship. Each element of 
 Next is the activation function for the outputs. The *Rectified Linear Unit (RelU) function* can be used with their formula `relu(x) = max(0, x)` which simply replaces negative values in a given tensor with the value 0. ReLU is a non-linear function, as seen here visually:
 ![relu](https://i.imgur.com/yijV4xF.png)
 
-Use the `F.relu` method to apply ReLU to the elements of a tensor.
+Use the `F.relu()` method to apply ReLU to the elements of a tensor.
 
 Ex:
 ```
